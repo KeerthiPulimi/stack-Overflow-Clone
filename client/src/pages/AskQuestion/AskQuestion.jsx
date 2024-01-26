@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 import "./AskQuestion.css";
+import { askQuestion } from "../../actions/question.js";
 
 
 
@@ -17,20 +18,27 @@ const AskQuestion = () => {
   const User = useSelector((state) => state.currentUserReducer);
   const navigate = useNavigate();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (User) {
+      if (questionTitle && questionBody && questionTags) {
+        dispatch(
+          askQuestion(
+            {
+              questionTitle,
+              questionBody,
+              questionTags,
+              userPosted: User.result.name,
+            },
+            navigate
+          )
+        );
+      } else alert("Please enter all the fields");
+    } else alert("Login to ask question");
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (e) {
-            if (questionTitle && questionBody && questionTags) {
-                alert("ok")
-              
-            } else alert("Please enter all the fields");
-        } else alert("Login to ask question");
-        setQuestionBody("")
-        setQuestionTags("")
-        setQuestionTitle("")
-    };
 
+    
     const handleEnter = (e) => {
         if (e.key === "Enter") {
             setQuestionBody(questionBody + "\n");
