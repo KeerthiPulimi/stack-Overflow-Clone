@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React,{ useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 import "./AskQuestion.css";
@@ -37,7 +39,7 @@ const AskQuestion = () => {
                     <div className="ask-form-container">
                         <label htmlFor="ask-ques-title">
                             <h4>Title</h4>
-                               <p> Be specific and imagine you’re asking a question to another
+                               <p> Be specific and imagine you're asking a question to another
                                 person
                             </p>
                             <input
