@@ -13,13 +13,13 @@ import { setCurrentUser } from '../../actions/currentUser';
 
 const Navbar = () => {
 
-
+  const dispatch=useDispatch()
   var User = useSelector((state ) =>(state.currentUserReducer))
 
   useEffect(()=>{
-    dispatchEvent(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+    dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
 
-  },[])
+  },[dispatch])
 
 
   return (
