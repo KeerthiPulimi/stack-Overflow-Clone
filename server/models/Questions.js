@@ -9,7 +9,7 @@ const QuestionSchema=mongoose.Schema({
   downVote: {type:[String], default:[]},
   userPosted:{type:String,required:"Question must have an author"},
   userId:{type: String},
-  postedOn:{type :Date,default:Date.now},
+  askedOn:{type :Date,default:Date.now},
   answer: [
     {
       answerBody: String,
@@ -21,3 +21,4 @@ const QuestionSchema=mongoose.Schema({
 
 
 });
+export default mongoose.model("Question", QuestionSchema);
