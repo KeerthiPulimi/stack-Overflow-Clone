@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 import "./AskQuestion.css";
-import { askQuestion } from "../../actions/question.js";
+import { askQuestion } from "../../actions/question";
 
 
 
